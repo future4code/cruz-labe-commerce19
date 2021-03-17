@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
+import Filtros from './components/filtro.js';
 import './App.css';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <Filtros/>
     </div>
   );
 }
