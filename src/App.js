@@ -1,7 +1,5 @@
 import React from 'react';
-import './App.css';
 import ProductList from './components/ProductList.js'
-
 
 export default class App extends React.Component {
   state={
