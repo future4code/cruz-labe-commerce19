@@ -6,6 +6,7 @@ const Elements = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-evenly;
+  flex-wrap:wrap;
 `
 
 const MainContainer = styled.div`
@@ -17,8 +18,8 @@ const MainContainer = styled.div`
     padding: 16px 0;
 `
 const ProductContainer = styled.div`
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: 16px;
     padding:16px;
 `
@@ -42,7 +43,7 @@ export default class ProductsList extends React.Component {
 
   render () {
     const products = this.props.products.map((p)=>{
-      return <ProductsCard name={p.name} value={p.value}/>
+      return <ProductsCard addProduct={this.props.addProduct} name={p.name} value={p.value}/>
     })
     return (
       <MainContainer>
