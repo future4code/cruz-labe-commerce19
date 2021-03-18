@@ -1,16 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
-import Carrinho from "./components/carrinho.js";
 import './App.css';
+import ProductList from './components/ProductList.js'
 
-function App() {
-  return (
-    <div>
-     
-     <Carrinho/>  
-    </div>
 
-  );
+export default class App extends React.Component {
+  state={
+    products:[{name:'Produto 1', value:10},{name:'Produto 2', value:20}, {name:'Produto 3', value:15}],
+  }
+  fromMaxToMin = () => {
+    let ordenedProducts = this.state.products;
+    ordenedProducts.sort(function compare(a, b) {
+      if (a.value < b.value) return -1;
+      if (a.value > b.value) return 1;
+      return 0;
+    })
+    this.setState({products: ordenedProducts})
+    
+  }
+  fromMinToMax = () => {
+    let ordenedProducts = this.state.products;
+    ordenedProducts.sort(function compare(a, b) {
+      if (a.value > b.value) return -1;
+      if (a.value < b.value) return 1;
+      return 0;
+    })
+    this.setState({products: ordenedProducts})
+    
+  }
+  render() {
+    return (
+      <>
+        <ProductList onChangeMin={this.fromMaxToMin} onChangeMax={this.fromMinToMax} products={this.state.products}/>
+      </>
+    );
+  }
 }
-
-export default App;
