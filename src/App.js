@@ -1,28 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
-import Filtros from './components/filtro.js';
-import './App.css';
+import ProductList from './components/ProductList.js'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <Filtros/>
-    </div>
-  );
+export default class App extends React.Component {
+  state={
+    products:[{name:'Produto 1', value:10},{name:'Produto 2', value:20}, {name:'Produto 3', value:15}],
+  }
+  fromMaxToMin = () => {
+    let ordenedProducts = this.state.products;
+    ordenedProducts.sort(function compare(a, b) {
+      if (a.value < b.value) return -1;
+      if (a.value > b.value) return 1;
+      return 0;
+    })
+    this.setState({products: ordenedProducts})
+    
+  }
+  fromMinToMax = () => {
+    let ordenedProducts = this.state.products;
+    ordenedProducts.sort(function compare(a, b) {
+      if (a.value > b.value) return -1;
+      if (a.value < b.value) return 1;
+      return 0;
+    })
+    this.setState({products: ordenedProducts})
+    
+  }
+  render() {
+    return (
+      <>
+        <ProductList onChangeMin={this.fromMaxToMin} onChangeMax={this.fromMinToMax} products={this.state.products}/>
+      </>
+    );
+  }
 }
-
-export default App;
