@@ -40,6 +40,7 @@ const Select = styled.div`
     height: 20px;
     background: #d8d8d8;
 
+
     border: 0;
     font-family: "Montserrat", sans-serif;
     text-transform: uppercase;

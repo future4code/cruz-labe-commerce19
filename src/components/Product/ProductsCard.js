@@ -33,13 +33,19 @@ const CardInfo = styled.div`
     color: #444457;
     letter-spacing: 3px;
   }
+`;
 
-  p {
+const Titulo = styled.p`
+    margin: 4px 0;
+    color: #281b2e;
+    font-weight: lighter;
+`
+const Preco = styled.p`
     margin: 4px 0;
     color: #281b2e;
     font-weight: 700;
-  }
-`;
+`
+
 const AddToCartButton = styled.button`
   margin-top: 10px;
   padding: 7px;
@@ -81,8 +87,8 @@ export default class ProductsCard extends React.Component {
       <CardInfo>
         
         <img alt="imagem do produto" src={this.imgCamisa(this.props.img)} />
-          {this.props.name}
-          <p>R${this.props.value}</p>
+          <Titulo>{this.props.name}</Titulo>
+          <Preco>R${this.props.value}</Preco>
           <AddToCartButton
             onClick={() => {
               this.props.addProduct(this.props.name, this.props.value);
