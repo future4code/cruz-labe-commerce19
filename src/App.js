@@ -19,6 +19,7 @@ body {
     font-family: 'Montserrat', sans-serif;
   }
 
+  
 input{
 border:0;
 padding: 5px;
