@@ -7,7 +7,7 @@ const Carrinhobox = styled.div`
   padding: 0%;
   margin-top: 50px;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   color: black;
   align-items: center;
   margin-right: 20px;
@@ -42,9 +42,10 @@ const Qtd = styled.div`
 `;
 
 const Produto = styled.div`
-  width: 100px;
+  width: 100%;
   padding: 5px;
   display: flex;
+  justify-content: space-between;
 
   @media (max-width: 800px) {
     width: 68%;
@@ -103,7 +104,7 @@ class Carrinho extends React.Component {
         <Carrinhobox>
           <H2>Carrinho</H2>
           {products}
-          <ProdutoTotal>Valor total: {this.props.totalValue}</ProdutoTotal>
+          <ProdutoTotal>Valor total: R$ {this.props.totalValue}</ProdutoTotal>
         </Carrinhobox>
       </div>
     );

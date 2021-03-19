@@ -35,29 +35,28 @@ const MainContainer = styled.div`
 
   @media (max-width: 800px) {
     flex-wrap: wrap;
+    justify-content: center;
   }
 `;
 
 export default class App extends React.Component {
   state = {
     products: [
-      { name: "Produto 1", value: 100, quantity: 0 },
-      { name: "Produto 2", value: 250, quantity: 0 },
-      { name: "Produto 3", value: 99, quantity: 0 },
-      { name: "Produto 4", value: 73, quantity: 0 },
-      { name: "Produto 5", value: 340, quantity: 0 },
-      { name: "Produto 6", value: 15, quantity: 0 },
-      { name: "Produto 7", value: 80, quantity: 0 },
+      { name: "T-Shirt Me Leva", value: 99, quantity: 0, img: 1},
+      { name: "T-Shirt Ricky and Morty", value: 59, quantity: 0, img: 2},
+      { name: "T-Shirt Star Wars", value: 89, quantity: 0, img: 3 },
+      { name: "T-Shirt Me Leva P/B", value: 69, quantity: 0, img: 4 },
+      { name: "Casaco Star Wars", value: 339, quantity: 0, img: 5 },
+      { name: "T-Shirt Astronauta Flame", value: 89, quantity: 0, img: 7 },
     ],
     cartProducts: [],
     filteredProducts: [
-      { name: "Produto 1", value: 100, quantity: 0 },
-      { name: "Produto 2", value: 250, quantity: 0 },
-      { name: "Produto 3", value: 99, quantity: 0 },
-      { name: "Produto 4", value: 73, quantity: 0 },
-      { name: "Produto 5", value: 340, quantity: 0 },
-      { name: "Produto 6", value: 15, quantity: 0 },
-      { name: "Produto 7", value: 80, quantity: 0 },
+      { name: "T-Shirt Me Leva", value: 100, quantity: 0, img: 1},
+      { name: "T-Shirt Ricky and Morty", value: 250, quantity: 0, img: 2},
+      { name: "T-Shirt Star Wars", value: 99, quantity: 0, img: 3},
+      { name: "T-Shirt Me Leva P/B", value: 73, quantity: 0, img: 4 },
+      { name: "Casaco Star Wars", value: 340, quantity: 0, img: 5 },
+      { name: "T-Shirt Astronauta Flame", value: 80, quantity: 0, img:7 },
     ],
     totalValue: 0,
   };

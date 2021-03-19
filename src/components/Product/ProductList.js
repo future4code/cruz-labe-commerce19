@@ -5,7 +5,7 @@ import ProductsCard from "./ProductsCard.js";
 const Elements = styled.div`
   width: 90%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
   color: black;
   text-transform: uppercase;
@@ -20,8 +20,6 @@ const MainContainer = styled.div`
   width: 98%;
   margin: 1% 2.5%;
   padding: 20px 0;
-  align-items: center;
-  justify-content: space-around;
   background: white;
 `;
 const ProductContainer = styled.div`
@@ -29,6 +27,8 @@ const ProductContainer = styled.div`
   flex-wrap: wrap;
   gap: 16px;
   padding: 16px;
+  justify-content: space-around;
+  margin-top: 20px;
 `;
 
 const Select = styled.div`
@@ -66,6 +66,7 @@ export default class ProductsList extends React.Component {
     const products = this.props.products.map((p) => {
       return (
         <ProductsCard
+          img={p.img}
           addProduct={this.props.addProduct}
           name={p.name}
           value={p.value}
