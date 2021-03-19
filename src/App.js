@@ -15,6 +15,7 @@ export default class App extends React.Component {
     this.setState({products: ordenedProducts})
     
   }
+  
   fromMinToMax = () => {
     let ordenedProducts = this.state.products;
     ordenedProducts.sort(function compare(a, b) {
