@@ -3,19 +3,27 @@ import styled from 'styled-components'
 import ProductsCard from './ProductsCard.js'
 
 const Elements = styled.div`
-  width: 100%;
+  width: 90%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   flex-wrap:wrap;
+  color:black;
+  text-transform:uppercase;
+ font-size:10px;
+font-weight:700;
+letter-spacing:1px;
 `
 
 const MainContainer = styled.div`
     display: flex;
     flex-direction: column;
-    width: 100vw;
+    width: 98%;
+    margin:1% 2.5%;
+    padding:20px 0;
     align-items: center;
     justify-content: space-around;
-    padding: 16px 0;
+    background: white;
+   
 `
 const ProductContainer = styled.div`
     display: flex;
@@ -23,6 +31,29 @@ const ProductContainer = styled.div`
     gap: 16px;
     padding:16px;
 `
+
+
+const Select = styled.div` 
+float:right;
+ text-align:right;
+
+  select {
+    width: 140px;
+  height: 20px;
+ background: #D8D8D8;
+
+  border: 0;
+  font-family: 'Montserrat', sans-serif;
+  text-transform:uppercase;
+ font-size:11px;
+ 
+  
+}
+
+
+ 
+`
+
 
 export default class ProductsList extends React.Component {
   
@@ -48,11 +79,12 @@ export default class ProductsList extends React.Component {
     return (
       <MainContainer>
         <Elements>
-          quantidade de produtos = {this.props.products.length}
+          Quantidade de produtos: {this.props.products.length}
+          <Select>
           <select onChange={this.selectHandle}>
             <option value='max'>Maior preço</option>
             <option value='min'>Menor preço</option>
-          </select>
+          </select></Select>
         </Elements>
         
         <ProductContainer>

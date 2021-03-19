@@ -4,24 +4,49 @@ import styled from 'styled-components'
 
 const CardInfo = styled.div`
     flex-direction: column;
-    width: 400px;
-    border: 1px solid black;
-    padding: 16px;
+    width: 220px;
     align-items: left;
 
-    
+
     img{
       width: 100%;
+      transition: transform .9s ease;
+      opacity:100%;
+    }
+    img:hover{
+      opacity:90%;
+  transform: scale(0.9);
     }
 
+    div{
+      padding: 16px;
+      text-transform:uppercase;
+      font-weight: 400;
+      color: #444457;
+      letter-spacing:3px;
+    }
     
     p{
         margin: 4px 0;
+        color: #281B2E;
+        font-weight: 700;
     }
 `
 const AddToCartButton = styled.button`
     align-self: center;
-    margin-top: 4px;
+    margin-top: 10px;
+  padding: 7px;
+  border: 2px solid black;
+  color:black;
+  font-family: 'Montserrat', sans-serif;
+  text-transform:uppercase;
+ font-size:11px;
+transition: all 1s ease;
+&:hover {
+  background: black;
+  color:white;
+}
+
 `
 
 export default class ProductsCard extends React.Component {
@@ -31,10 +56,10 @@ export default class ProductsCard extends React.Component {
    
         <CardInfo>
         <img alt='imagem do produto' src='https://picsum.photos/200'/>
-          <p>{this.props.name}</p>
-          <p>{this.props.value}</p>
+          <div>{this.props.name}
+          <p>R${this.props.value}</p>
           <AddToCartButton onClick={()=>{this.props.addProduct(this.props.name, this.props.value)}}>Adicionar no carrinho</AddToCartButton>
-        </CardInfo>
+          </div></CardInfo>
       
     );
   }

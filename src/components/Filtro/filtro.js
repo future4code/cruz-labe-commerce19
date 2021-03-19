@@ -2,26 +2,55 @@ import React from "react";
 import styled from 'styled-components'
 
 const MainContainer = styled.div`
-    font-family: sans-serif;
-    text-align: center;
+   background:#2E3836;
+padding:10px;
+
+  width:200px;
+
+  margin-top:14px;
+  display:flex;
+  flex-wrap: wrap;
+color:white;
+align-items: center;
+ 
+@media(max-width: 800px) {
+  flex-direction: column;
+  width:95%;
+  margin:2.5%;
+  }
+
 `
-const FiltroTitle = styled.h3`
-    display: block;
-    font-size: 1.17em;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
+const FiltroTitle = styled.h2`
+      margin:auto;
+width:100%;
+  padding-top: 20px;
+  padding-bottom:20px;
+  font-size:20px;
+  text-transform:uppercase;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing:3px;
 `
 
-const Caixa = styled.div`
-    border: 1px solid black;
-    padding: 1px 10px 150px;
-    width:96%;
-    margin: 2%;
-    display: block; 
+
+const Botao = styled.button`
+  text-align:center;
+  padding: 5px;
+  margin:3px;
+  border: 2px solid black;
+  color:black;
+  font-family: 'Montserrat', sans-serif;
+  text-transform:uppercase;
+ font-size:11px;
+transition: all 1s ease;
+&:hover {
+  background: black;
+  color:white;
+}
+
 `
+
+
 
 export default class Filtro extends React.Component {
   state = {
@@ -44,29 +73,39 @@ export default class Filtro extends React.Component {
     this.props.filteredProducts(this.state.minValueInput,this.state.maxValueInput, this.state.nameInput)
   }
 
+  cleanFilter = () =>{
+    this.setState({
+      minValueInput: '',
+      maxValueInput: '',
+      nameInput: ''
+    });
+    this.props.filteredProducts('','', '')
+  }
+
 
   render() {
     
     return (
       <MainContainer>
-        <Caixa>
+       
         <FiltroTitle>Filtros</FiltroTitle>
         <label class = "valor-minimo"> 
           <p>Valor Mínimo:</p>
-          <input onChange={this.minInputHandle} value={this.state.minValueInput} type='number'></input>
+          <input onChange={this.minInputHandle} value={this.state.minValueInput} type='number'/>
         </label>
   
         <label class = "valor-maximo"> 
           <p>Valor Máximo:</p>
-          <input onChange={this.maxInputHandle} value={this.state.maxValueInput} type='number'></input>
+          <input onChange={this.maxInputHandle} value={this.state.maxValueInput} type='number'/> 
         </label>
   
         <label class = "valor-minimo"> 
           <p>Busca por nome:</p>
-          <input onChange={this.nameInputHandle} value={this.state.nameInput} type='text'></input>
+          <input onChange={this.nameInputHandle} value={this.state.nameInput} type='text'/> 
         </label>
-        <button onClick={this.filter}>Filtrar</button>
-        </Caixa>
+        <Botao onClick={this.filter}>Filtrar</Botao>
+        <Botao onClick={this.cleanFilter}>Limpar Filtros</Botao>
+      
       </MainContainer>
     );
   }
