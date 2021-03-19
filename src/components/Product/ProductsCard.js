@@ -1,13 +1,23 @@
 import React from "react";
+import camisa1 from "../../img/Camisas/1.png";
+import camisa2 from "../../img/Camisas/2.png";
+import camisa3 from "../../img/Camisas/3.png";
+import camisa4 from "../../img/Camisas/4.png";
+import camisa5 from "../../img/Camisas/5.png";
+import camisa6 from "../../img/Camisas/6.png";
+import camisa7 from "../../img/Camisas/7.png";
 import styled from "styled-components";
 
 const CardInfo = styled.div`
-  flex-direction: column;
   width: 220px;
-  align-items: left;
-
+  height: 350px;
+  :last-child {
+    justify-self: flex-start;
+    align-self: flex-start;
+  }
   img {
-    width: 100%;
+    width: 220px;
+    height: 220px;
     transition: transform 0.9s ease;
     opacity: 100%;
   }
@@ -31,7 +41,6 @@ const CardInfo = styled.div`
   }
 `;
 const AddToCartButton = styled.button`
-  align-self: center;
   margin-top: 10px;
   padding: 7px;
   border: 2px solid black;
@@ -47,11 +56,31 @@ const AddToCartButton = styled.button`
 `;
 
 export default class ProductsCard extends React.Component {
+  imgCamisa = (n) => {
+  switch (n) {
+  case 1:
+    return camisa1
+    case 2:
+    return camisa2
+    case 3:
+    return camisa3
+    case 4:
+    return camisa4
+    case 5:
+    return camisa5
+    case 6:
+    return camisa6
+    case 7:
+    return camisa7
+    default:
+    break;
+}
+  }
   render() {
     return (
       <CardInfo>
-        <img alt="imagem do produto" src="https://picsum.photos/200" />
-        <div>
+        
+        <img alt="imagem do produto" src={this.imgCamisa(this.props.img)} />
           {this.props.name}
           <p>R${this.props.value}</p>
           <AddToCartButton
@@ -61,7 +90,6 @@ export default class ProductsCard extends React.Component {
           >
             Adicionar no carrinho
           </AddToCartButton>
-        </div>
       </CardInfo>
     );
   }
