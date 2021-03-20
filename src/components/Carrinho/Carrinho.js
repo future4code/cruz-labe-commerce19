@@ -54,7 +54,7 @@ const Produto = styled.div`
 `;
 
 const Botao = styled.button`
-  width: 75px;
+  width: 45px;
   text-align: center;
   padding: 5px;
   border: 2px solid black;
@@ -94,7 +94,7 @@ class Carrinho extends React.Component {
               this.props.removeProduct(product.name, product.value)
             }
           >
-            remover
+            X
           </Botao>
         </Produto>
       );

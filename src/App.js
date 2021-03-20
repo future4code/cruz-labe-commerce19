@@ -4,6 +4,7 @@ import Carrinho from "./components/Carrinho/Carrinho.js";
 import Filtro from "./components/Filtro/filtro.js";
 import fundo from "./img/fundo.png";
 import logo from "./img/logo.png";
+import Footer from "./components/Footer/Footer.js"
 import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
 
@@ -51,12 +52,12 @@ export default class App extends React.Component {
     ],
     cartProducts: [],
     filteredProducts: [
-      { name: "T-Shirt Me Leva", value: 100, quantity: 0, img: 1},
-      { name: "T-Shirt Ricky and Morty", value: 250, quantity: 0, img: 2},
-      { name: "T-Shirt Star Wars", value: 99, quantity: 0, img: 3},
-      { name: "T-Shirt Me Leva P/B", value: 73, quantity: 0, img: 4 },
-      { name: "Casaco Star Wars", value: 340, quantity: 0, img: 5 },
-      { name: "T-Shirt Astronauta Flame", value: 80, quantity: 0, img:7 },
+      { name: "T-Shirt Me Leva", value: 99, quantity: 0, img: 1},
+      { name: "T-Shirt Ricky and Morty", value: 59, quantity: 0, img: 2},
+      { name: "T-Shirt Star Wars", value: 89, quantity: 0, img: 3 },
+      { name: "T-Shirt Me Leva P/B", value: 69, quantity: 0, img: 4 },
+      { name: "Casaco Star Wars", value: 339, quantity: 0, img: 5 },
+      { name: "T-Shirt Astronauta Flame", value: 89, quantity: 0, img: 7 },
     ],
     totalValue: 0,
   };
@@ -129,11 +130,27 @@ export default class App extends React.Component {
     this.setState({ cartProducts: newCartProducts });
   };
 
+  //LocalStorage
+
+componentDidUpdate () {
+  localStorage.setItem ('State', JSON.stringify(this.state))
+}
+
+componentDidMount () {
+  const savedState = localStorage.getItem('State');
+
+  if (savedState) {
+    this.setState(JSON.parse(savedState))
+    this.setState({filteredProducts: this.state.products})
+  }
+} 
+
+
   render() {
     return (
       <div>
         <GlobalStyle />
-        <img src={logo} />
+        <img alt='logo' src={logo} />
 
         <MainContainer>
           <Filtro filteredProducts={this.filteredProducts} />
@@ -149,6 +166,11 @@ export default class App extends React.Component {
             removeProduct={this.removeProduct}
           />
         </MainContainer>
+
+        <Footer>
+          ...
+        </Footer>
+
       </div>
     );
   }
