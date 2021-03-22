@@ -1,6 +1,6 @@
 # Sejam bem vindos ao Labe-commerce
 
-Labe-commerce é um projeto feito com ReactJS, uma versão simplificada de um ecommerce sem BackEnd.
+Labe-commerce é um projeto feito com ReactJS, uma versão simplificada de um ecommerce de camisas com temática espacial sem BackEnd.
 
 ## Como visualizar
 
