@@ -1,6 +1,7 @@
-# Sejam bem vindos ao Labe-commerce
+![Screen Shot 2021-03-22 at 23 34 38](https://user-images.githubusercontent.com/19447953/112084264-47f40980-8b67-11eb-914f-001b3ca6cc54.png)
+# Sejam bem vindos ao labe-commerce
 
-Labe-commerce é um projeto feito com ReactJS, uma versão simplificada de um ecommerce de camisas com temática espacial sem BackEnd.
+**labe-commerce** é um projeto feito com ReactJS, uma versão simplificada de um ecommerce de camisas com temática espacial, sem BackEnd.
 
 ## Como visualizar
 
